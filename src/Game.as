@@ -19,6 +19,10 @@ package
 		{
 			trace("starling framework initialized1");
 			
+			screenWelcome = new Welcome();
+			this.addChild(screenWelcome);
+			screenWelcome.initialize();
+			
 		}
 	}
 }
