@@ -6,6 +6,7 @@ package
 	import flashx.textLayout.formats.Direction;
 	
 	import starling.textures.Texture;
+	import starling.textures.TextureAtlas;
 
 	public class Assets
 	{
@@ -26,6 +27,11 @@ package
 	
 	private static var gameTextures:Dictionary = new Dictionary();
 	
+	
+	public static function getAtlas():TextureAtlas
+	{
+	
+	}
 	public static function getTexture(name:String):Texture
 	{
 		if(gameTextures[name] == undefined)

@@ -6,7 +6,7 @@ package
 	
 	import starling.core.Starling;
 	
-	[SWF(FrameRate="60", width="1920", height="1080", backroundColor="0x333333")]
+	[SWF(frameRate="140", width="1920", height="1080", backroundColor="0x333333")]
 	public class HungryHero extends Sprite
 	{
 		
@@ -19,7 +19,7 @@ package
 			this.addChild(stats);
 			
 			myStarling = new Starling(Game, stage);
-			myStarling.antiAliasing = 1;
+			myStarling.antiAliasing = 16;
 			myStarling.start();
 		}
 	}
