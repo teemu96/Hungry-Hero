@@ -2,6 +2,8 @@ package screens
 {
 	import com.greensock.TweenLite;
 	
+	import events.NavigationEvent;
+	
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -26,6 +28,21 @@ package screens
 		{
 			trace("welcome screen initialized");
 			
+			this.addEventListener(events.NavigationEvent.CHANGE_SCREEN, onChangeScreen);
+			
+			screenWelcome = new Welcome();
+			this.addChild(screenWelcome);
+			screenWelcome.initialice();
+			{
+			switch	 (event.params.id)
+			{
+				case "play":
+					break;
+			}
+		
+		private function onChangeScreen(event:NavigationEvent):void
+	}
+			
 			drawScreen();
 		}
 		
@@ -34,25 +51,36 @@ package screens
 			bg=new Image(Assets.getTexture("BgWelcome"));
 			this.addChild(bg);
 			
-			title=new Image(Assets.getTexture("WelcomeTitle"));
+			title=new Image(Assets.getAtlas().getTexture("welcome_title"));
 			title.x = 440;
 			title.y = 20;
 			this.addChild(title);
 			
-			hero=new Image(Assets.getTexture("WelcomeHero"));
+			hero=new Image(Assets.getAtlas().getTexture("welcome_hero"));
 			this.addChild(hero);
 			hero.x = -hero.width;
 			hero.y = 100;
 			
-			playBtn = new Button(Assets.getTexture("WelcomePlayBtn"));
+			playBtn = new Button(Assets.getAtlas().getTexture("welcome_playButton"));
 			playBtn.x = 500;
 			playBtn.y = 260;
 			this.addChild(playBtn);
 			
-			aboutBtn = new Button(Assets.getTexture("WelcomeAboutBtn"));
+			aboutBtn = new Button(Assets.getAtlas().getTexture("welcome_aboutButton"));
 			aboutBtn.x = 410;
 			aboutBtn.y = 380;
 			this.addChild(aboutBtn);
+			
+			this.addEventListener(Event.TRIGGERED, onMainMenuClick);
+		}
+		
+		private function onMainMenuClick(event:Event):void
+		{
+			var buttonClicked:Button = event.target as Button;
+			if((buttonClicked as Button) == playBtn);
+			{
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, {id: "play"}, true));
+			}
 		}
 		
 		public function initialize():void

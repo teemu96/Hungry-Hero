@@ -3,7 +3,7 @@ package
 	import flash.display.Sprite;
 	
 	import net.hires.debug.Stats;
-	
+	import screens.inGame
 	import starling.core.Starling;
 	
 	[SWF(frameRate="140", width="1920", height="1080", backroundColor="0x333333")]
